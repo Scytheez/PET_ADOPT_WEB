@@ -32,7 +32,6 @@ class conn:
 
         self.db_conn.commit()
         self.cursor.close()
-        
 
 if __name__ == '__main__':
     conn()

@@ -1,0 +1,56 @@
+
+DATABASE CREATION:
+
+CREATE TABLE USER (
+user_id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(50) NOT NULL,
+lname VARCHAR(50) NOT NULL,
+address VARCHAR(255) NOT NULL,
+age INT NOT NULL,
+bday DATE NOT NULL,
+email VARCHAR(255),
+occupation VARCHAR(255) NOT NULL,
+social_media_profile VARCHAR(255),
+phone_number INT NOT NULL,
+user_type ENUM('adopt', 'rehome') NOT NULL,
+valid_id MEDIUMBLOB NOT NULL
+);
+
+CREATE TABLE PET (
+pet_id INT AUTO_INCREMENT PRIMARY KEY,
+pet_name VARCHAR(18) NOT NULL,
+pet_age TINYINT NOT NULL,
+pet_gender VARCHAR(18) NOT NULL,
+pet_breed VARCHAR(255) NOT NULL,
+pet_type VARCHAR(18) NOT NULL,
+pet_status ENUM('adopted', 'available') NOT NULL,
+description TEXT,
+vaccinated VARCHAR(18) NOT NULL,
+vaccine_type VARCHAR(255),
+picture MEDIUMBLOB
+);
+
+CREATE TABLE ADOPT_PET (
+adopt_id INT AUTO_INCREMENT PRIMARY KEY,
+user_id INT,
+pet_id INT,
+responsible_for_pet_health TEXT NOT NULL,
+responsible_for_pet_needs TEXT NOT NULL,
+responsible_for_pet_emergency TEXT NOT NULL,
+hours_pet_alone TEXT,
+pet_environment TEXT,
+family_support_adoption BOOL NOT NULL,
+if_no_explain TEXT,
+CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES USER(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_pet_id FOREIGN KEY (pet_id) REFERENCES PET(pet_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE REHOME_PET (
+rehome_id INT AUTO_INCREMENT PRIMARY KEY,
+user_id INT,
+pet_id INT,
+ownership VARCHAR(18) NOT NULL,
+reason TEXT NOT NULL,
+CONSTRAINT fk_user_id_r FOREIGN KEY (user_id) REFERENCES USER(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_pet_id_r FOREIGN KEY (pet_id) REFERENCES PET(pet_id) ON DELETE CASCADE ON UPDATE CASCADE
+);

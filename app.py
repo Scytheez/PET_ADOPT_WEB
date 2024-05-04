@@ -1,8 +1,8 @@
 from flask import Flask, render_template, url_for, request
 from flask_sqlalchemy import SQLAlchemy
-#from dbconfig import conn
+from dbconfig import conn
 
-#db_conn = conn()
+db_conn = conn()
 
 app =Flask(__name__)
 
@@ -45,9 +45,9 @@ def rehome():
         phone_num = request.form['phone']
         valid_id = request.form['image']
 
-        """ db_conn.rehome_form(pet_name, pet_age, gender, breed, ownership, type, 
+        db_conn.rehome_form(pet_name, pet_age, gender, breed, ownership, type, 
                             reasons, desc_pet, vaccine, vaccine1, pet_pic, name,
-                            age, email, occupation, soc_media, phone_num, valid_id) """
+                            age, email, occupation, soc_media, phone_num, valid_id)
 
     return render_template('rehome.html')
 
@@ -57,6 +57,24 @@ def donation():
 
 @app.route('/adopt')  
 def adopt():
+    if request.method == 'POST':
+        # Get form applicant data
+        name = request.form['Fname']
+        lname = request.form['Lname']
+        addr = request.form['address']
+        phone = request.form['phone']
+        email = request.form['email']
+        occu = request.form['occupation']
+        social = request.form['social']
+        bday = request.form['bday']
+
+        f_pet = request.form['f_pet']
+        living_type = request.form['building']
+        allergy = request.form['allergy']
+        what_pet = request.form['what_pet']
+        live = request.form['live']
+
+
     return render_template('adopt.html')
 
 if __name__ == "__main__":
