@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Test host</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block head %} 
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="opet">Paws for a Cause: 
+        Adopt and Donate System</div>
+        <a href="{{ url_for('dashboard') }}"> <!-- Hyperlink wrapping the button -->
+            <button class="start">Get Started</button>
+        </a>
+</div>
+
+{% endblock %}

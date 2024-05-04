@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ouranimals.css') }}"> <!-- Reference to external CSS -->
+    {% block head %} {% endblock %}
+</head>
+<body>
+    <!-- Navbar at the top with buttons -->
+    <nav class="navbar">
+        <h1>Paws for a Cause: 
+            Adopt and Donate System</h1>
+        <a href="{{ url_for('dashboard') }}" class="nav-button">Home</a>
+        <a href="" class="nav-button">Our Animals</a>
+        <a href="{{ url_for('rehome') }}" class="nav-button">Reho-Me</a>
+        <a href="#" class="nav-button">Donation</a>
+    </nav>
+
+    <!-- Main container with inner content -->
+    <div class="main-container"> 
+       <div class="inner">
+            <!-- Filter buttons for All, Dogs, and Cats -->
+            <div class="filter-buttons">
+                <button class="filter-button" id="all">All</button>
+                <button class="filter-button" id="dogs">Dogs</button>
+                <button class="filter-button" id="cats">Cats</button>
+            </div>
+
+            <!-- Content area where filters will take effect -->
+            <div class="content-area">
+                <div class="container">
+                    
+                </div>
+            </div>
+       </div>
+    </div>
+    
+    {% block body %} {% endblock %}
+</body>
+</html>

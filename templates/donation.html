@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/donation.css') }}"> 
+    {% block head %} {% endblock %}
+</head>
+<body>
+    <!-- Navbar at the top with buttons -->
+    <nav class="navbar">
+        <h1>Paws for a Cause: 
+            Adopt and Donate System</h1>
+        <a href="{{ url_for('dashboard') }}" class="nav-button">Home</a>
+        <a href="{{ url_for('ouranimals')}}" class="nav-button">Our Animals</a>
+        <a href="{{ url_for('rehome') }}" class="nav-button">Reho-Me</a>
+        <a href="#" class="nav-button">Donation</a>
+    </nav>
+
+    <!-- Main container with inner content -->
+    <div class="main-container"> 
+
+          
+       <div class="inner">
+            
+            <div class="left_side">
+                <div style="left: 20%; position:absolute;">
+                    <h1>Donate Online</h1>
+                </div>
+               
+
+                <div class="left">
+                    <img src="{{ url_for('static', filename='img/g_cash.png') }}" alt="Example Image">
+                </div>
+
+                <div class="right">
+                    <p>
+                        Login GCash and tap pay QR
+                    </p>
+
+                    <p>
+                        Scan the QR Code   
+                    </p>
+
+                    <p>
+                        Input Amount and tap Next
+                    </p>
+
+                    <p>
+                        Review all the details then tap Pay    
+                    </p>
+                </div>
+            </div>
+
+            <div class="right_side">
+
+                <div class="top" style="text-align: center;">
+                    <h1>Bank Transfer</h1>
+                </div>
+
+                <div class="bottom">
+                    <p>
+                        Acct Name: 
+                    </p>
+
+                    <p>
+                        Bank of the Philippine Islands (Swift no. BOPIPHMM) 
+                    </p>
+
+                    <p>
+                        Philippine National Bank
+                    </p>
+
+                    <p>
+                        BDO Savings    
+                    </p>
+
+                    <p>
+                        Checks: Please issue to 
+                    </p>
+                </div>
+
+
+            </div>
+
+         
+       </div>
+
+
+    </div>
+    
+    {% block body %} {% endblock %}
+</body>
+</html>

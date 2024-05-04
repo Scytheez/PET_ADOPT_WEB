@@ -1,0 +1,91 @@
+/* Reset default body margins and padding */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar container */
+.navbar {
+    display: flex; /* Enable Flexbox for horizontal arrangement */
+    justify-content: space-around; /* Equally space the buttons */
+    align-items: center; /* Center the buttons vertically */
+    background-color: #333; /* Dark background for contrast */
+    color: white; /* White text for visibility */
+    height: 70px; /* Fixed height for the navbar */
+}
+
+/* Navbar buttons */
+.nav-button {
+    text-decoration: none; /* No underline */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for button-like appearance */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+.nav-button:hover {
+    background-color: #555; /* Change background on hover */
+}
+
+/* Outer container */
+.main-container {
+    display: flex; /* Enable Flexbox */
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: stretch; /* Stretch vertically to fill container */
+    height: calc(100vh - 50px); /* Occupy the full viewport, minus the navbar height */
+    overflow: hidden; /* Prevent overflow and scrollbars */
+    background-color: #FDE1CC;
+}
+.inner{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    height: 87%;
+    width: 100%;
+    border-radius: 30px;
+    margin-bottom: 70px;
+}
+
+
+.filter-buttons {
+    justify-content: space-around; /* Equally spaced buttons */
+    align-items: center; /* Center vertically */
+    margin-top: 3%;
+    margin-left: 3%;
+    padding: 20px; /* Padding for spacing */
+    border-radius: 15px; /* Rounded corners */
+}
+
+.filter-button {
+    background-color: #333; /* Dark background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for button-like appearance */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+.filter-button:hover {
+    background-color: #555; /* Change background on hover */
+}
+
+/* Content area for displaying filtered content */
+.content-area {
+    margin-top: 20px; /* Space below filter buttons */
+    height: 80%; /* Adjust height */
+    overflow: auto; /* Allow for scrolling if content overflows */
+    
+}
+.container {
+    border: 1px solid black; /* Simple border */
+    background-color: white; /* Basic background color */
+    padding: 5%; /* Padding inside the box */
+    margin: 20px; /* Space outside the box */
+    border-radius: 10px; /* Optional: Rounded corners */
+    width: 30%; /* Set a width for the box */
+    height: 40%; /* Adjust height based on content */
+}
