@@ -40,7 +40,7 @@
                 <div class="right-content">
                     <div class="left_row">
                         <!-- Form elements -->
-                        <form action="{{ url_for('rehome_form') }}" method="post"> <!-- Form action and method -->
+                        <form action="{{ url_for('rehome') }}" method="post"> <!-- Form action and method -->
                             <div style="margin-top: 10px;">
                                 <label form="pet_name">Name:</label>
                                 <input type="text" id="pet_name" name="pet_name" required> <!-- Name field -->
@@ -83,7 +83,7 @@
                     </div>
 
                     <div class="right_row">
-                        <form action="{{ url_for('rehome_form') }}" method="post"> <!-- Form action and method -->
+                        <form action="{{ url_for('rehome') }}" method="post"> <!-- Form action and method -->
                             <div style="margin-top: 10px;">
                                 <label form="describe">Describe your Pet:</label>
                                 <textarea id="describe" name="describe" rows="4" required></textarea>
