@@ -6,7 +6,7 @@ db_conn = conn()
 
 app =Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = ''
+#app.config['SQLALCHEMY_DATABASE_URI'] = ''
 
 @app.route('/')
 def index():
@@ -74,6 +74,18 @@ def adopt():
         what_pet = request.form['what_pet']
         live = request.form['live']
 
+        pet_resp = request.form['pet_resp']
+        pet_needs = request.form['pet_needs']
+        pet_emer = request.form['pet_emer']
+        pet_hour = request.form['pet_hour']
+        pet_env = request.form['pet_env']
+        pet_supp = request.form['pet_supp']
+        no_supp = request.form['no_supp']
+        other_pet = request.form['other_pet']
+        past_pet = request.form['past_pet']
+        valid_id = request.form['file']
+
+        db_conn.adopt_form()
 
     return render_template('adopt.html')
 
