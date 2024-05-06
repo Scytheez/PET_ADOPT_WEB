@@ -1,9 +1,18 @@
 from flask import Flask, render_template, url_for, request
 from dbconfig import conn
+import os
+from werkzeug.utils import secure_filename
+
+app =Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'static/uploads'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 db_conn = conn()
 
-app =Flask(__name__)
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/')
 def index():
@@ -22,8 +31,8 @@ def rehome():
     if request.method == 'POST':
         try:
             # Get form pet data
-            pet_name = request.form['name']
-            pet_age = request.form['age']
+            pet_name = request.form['pet_name']
+            pet_age = request.form['pet_age']
             gender = request.form['gender']
             breed = request.form['breed']
             ownership = request.form['ownership']
@@ -32,7 +41,12 @@ def rehome():
             desc_pet = request.form['describe']
             vaccine = request.form['Vaccinated']
             vaccine1 = request.form['vaccinated1']
-            pet_pic = request.form['file']
+            pet_pic = request.files.get('file')
+            pet_pic_path = None
+            if pet_pic and allowed_file(pet_pic.filename):
+                filename = secure_filename(pet_pic.filename)
+                pet_pic_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                pet_pic.save(pet_pic_path)
 
             # Get form user data
             name = request.form['name']
@@ -41,7 +55,12 @@ def rehome():
             occupation = request.form['occupation']
             soc_media = request.form['social']
             phone_num = request.form['phone']
-            valid_id = request.form['image']
+            valid_id = request.files.get('image')
+            valid_id_path = None
+            if valid_id and allowed_file(valid_id.filename):
+                filename = secure_filename(valid_id.filename)
+                valid_id_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                valid_id.save(valid_id_path)
 
             db_conn.rehome_form(pet_name, pet_age, gender, breed, ownership, type, 
                                 reasons, desc_pet, vaccine, vaccine1, pet_pic, name,
@@ -84,7 +103,12 @@ def adopt():
             no_supp = request.form['no_supp']
             other_pet = request.form['other_pet']
             past_pet = request.form['past_pet']
-            valid_id = request.form['file']
+            valid_id = request.files.get('image')
+            valid_id_path = None
+            if valid_id and allowed_file(valid_id.filename):
+                filename = secure_filename(valid_id.filename)
+                valid_id_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                valid_id.save(valid_id_path)
 
             db_conn.adopt_form(name, lname, addr, phone, email, occu, social, bday, f_pet, living_type,
                             allergy, what_pet, live, pet_resp, pet_needs, pet_emer, pet_hour, pet_env,
