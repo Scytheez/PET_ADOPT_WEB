@@ -24,7 +24,28 @@ def dashboard():
 
 @app.route('/ouranimals')  
 def ouranimals():
-    return render_template('ouranimals.html')
+    db_conn = conn()
+
+    items_per_page = 10
+    page = int(request.args.get('page', 1))
+
+    offset = (page - 1) * items_per_page
+
+    query = f"SELECT pet_name, pet_age, pet_gender, pet_breed, pet_type, description, vaccinated, vaccine_type FROM PET WHERE pet_status = 'available' LIMIT {items_per_page} OFFSET {offset}"
+    db_conn.cursor.execute(query)
+
+    pets = db_conn.cursor.fetchall()
+
+    query = f"SELECT COUNT(*) FROM PET WHERE pet_status = 'available'"
+    db_conn.cursor.execute(query)
+    total_pets = db_conn.cursor.fetchone()[0]
+
+    has_next = (offset + items_per_page) < total_pets
+
+    db_conn.cursor.close()
+    db_conn.db_conn.close() 
+
+    return render_template('ouranimals.html', pets=pets, page=page, has_next=has_next)
 
 @app.route('/rehome', methods=['GET', 'POST'])  
 def rehome():
@@ -41,11 +62,12 @@ def rehome():
             desc_pet = request.form['describe']
             vaccine = request.form['Vaccinated']
             vaccine1 = request.form['vaccinated1']
+
             pet_pic = request.files.get('file')
-            pet_pic_path = None
+            pet_pic_path = None 
             if pet_pic and allowed_file(pet_pic.filename):
                 filename = secure_filename(pet_pic.filename)
-                pet_pic_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                pet_pic_path = os.path.join('static/uploads/pets', filename)
                 pet_pic.save(pet_pic_path)
 
             # Get form user data
@@ -55,16 +77,18 @@ def rehome():
             occupation = request.form['occupation']
             soc_media = request.form['social']
             phone_num = request.form['phone']
+            
             valid_id = request.files.get('image')
             valid_id_path = None
             if valid_id and allowed_file(valid_id.filename):
                 filename = secure_filename(valid_id.filename)
-                valid_id_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                valid_id_path = os.path.join('static/uploads/id', filename)
                 valid_id.save(valid_id_path)
 
             db_conn.rehome_form(pet_name, pet_age, gender, breed, ownership, type, 
-                                reasons, desc_pet, vaccine, vaccine1, pet_pic, name,
-                                age, email, occupation, soc_media, phone_num, valid_id)
+                                reasons, desc_pet, vaccine, vaccine1, name,
+                                age, email, occupation, soc_media, phone_num)
+            
         except Exception as e:
             print(e)
 
@@ -103,6 +127,7 @@ def adopt():
             no_supp = request.form['no_supp']
             other_pet = request.form['other_pet']
             past_pet = request.form['past_pet']
+
             valid_id = request.files.get('image')
             valid_id_path = None
             if valid_id and allowed_file(valid_id.filename):

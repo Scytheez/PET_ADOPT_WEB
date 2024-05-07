@@ -7,7 +7,6 @@
     {% block head %} {% endblock %}
 </head>
 <body>
-    <!-- Navbar at the top with buttons -->
     <nav class="navbar">
         <h1>Paws for a Cause: 
             Adopt and Donate System</h1>
@@ -41,8 +40,7 @@
                 <div class="right-content">
                     <div class="left_row">
 
-                        <!-- Form elements -->
-                        <form action="{{ url_for('rehome') }}" method="post" enctype="multipart/form-data"> <!-- Form action and method -->
+                        <form action="{{ url_for('rehome') }}" method="POST" enctype="multipart/form-data"> <!-- Form action and method -->
                             <div style="margin-top: 10px;">
                                 <label for="pet_name">Name:</label>
                                 <input type="text" id="pet_name" name="pet_name" required> <!-- Name field -->
@@ -102,7 +100,7 @@
                         
                         <div style="margin-top: 10px;">
                             <label for="file">Upload a proper and updated picture of the pet</label>
-                            <input type="file" id="file" name="file" accept="image/*"> <!-- File upload input -->
+                            <input type="file" id="file" name="file" accept="image/*" required> <!-- File upload input -->
                         </div>
                     </div>
                 </div>
@@ -148,7 +146,7 @@
                 <div class="third">
                     <div style="padding-top: 30%;">
                         <label for="image">Upload Image:</label>
-                        <input type="file" id="image" name="image" accept="image/*"> <!-- File input for image upload -->
+                        <input type="file" id="image" name="image" accept="image/*" required> <!-- File input for image upload -->
                     </div>
                 </div>
             </div>

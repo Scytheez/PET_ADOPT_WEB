@@ -13,7 +13,7 @@
             Adopt and Donate System</h1>
         <a href="{{ url_for('dashboard') }}" class="nav-button">Home</a>
         <a href="{{ url_for('ouranimals')}}" class="nav-button">Our Animals</a>
-        <a href="{{ url_for('rehome') }}" class="nav-button">Reho-Me</a>
+        <a href="#" class="nav-button">Reho-Me</a>
         <a href="{{ url_for('donation')}}" class="nav-button">Donation</a>
     </nav>
 
@@ -63,7 +63,7 @@
         
                     
                     <div style="padding-top: 7%;">
-                        <label for="address">Address:</label>
+                        <label for="age">Address:</label>
                         <input type="text" id="address" name="address" required>
                     </div>
         
@@ -99,7 +99,7 @@
         
                    
                     <div style="padding-top: 7%;">
-                        <label for="bday">Birthdate:</label>
+                        <label for="social">Birthdate:</label>
                         <input type="date" id="bday" name="bday"> 
                     </div>
 
@@ -109,8 +109,8 @@
 
                     <div> 
                         <label>First time owning a pet:</label>
-                        <input type="radio" name="f_pet" value="Yes"> Yes
-                        <input type="radio" name="f_pet" value="No"> No
+                        <input type="radio" name="firsttime" value="Yes"> Yes
+                        <input type="radio" name="firsttime" value="No"> No
                     </div>
 
                     
@@ -125,8 +125,8 @@
                     
                     <div style="padding-top: 2%;">
                         <label>Are any members of your household allergic to animals?:</label>
-                        <input type="radio" name="allergy" value="Yes"> Yes
-                        <input type="radio" name="allergy" value="No"> No
+                        <input type="radio" name="firsttime" value="Yes"> Yes
+                        <input type="radio" name="firsttime" value="No"> No
                     </div>
 
 
@@ -134,10 +134,10 @@
                     <div style="padding-top: 2%;">
                         <label>What are you looking to adopt?</label>
                         <div>
-                        <input type="radio" name="what_pet" value="Yes"> Cat
-                        <input type="radio" name="what_pet" value="No"> Dog
-                        <input type="radio" name="what_pet" value="No"> Both
-                        <input type="radio" name="what_pet" value="No"> Not decided
+                        <input type="radio" name="firsttime" value="Yes"> Cat
+                        <input type="radio" name="firsttime" value="No"> Dog
+                        <input type="radio" name="firsttime" value="No"> Both
+                        <input type="radio" name="firsttime" value="No"> Not decided
                         </div>
                     </div>
 
@@ -158,71 +158,88 @@
                             <input type="checkbox" name="live" value="Yes"> Parents/Relatives
                         </div>
                         </div>
+                      
+
                     </div>
 
                     
                     <div style="padding-top: 2%;">
                         <label for="name">Who will be responsible for feeding, grooming, and generally caring of your pet?</label>
-                        <input type="text" id="Fname" name="pet_resp" required> 
+                        <input type="text" id="Fname" name="Fname" required> 
                     </div>
 
                     
                     <div style="padding-top: 2%;">
                         <label for="name">Who will be financially responsible for your pet's needs (i.e. food, vet bills, etc,)?</label>
-                        <input type="text" id="Fname" name="pet_needs" required> 
+                        <input type="text" id="Fname" name="Fname" required> 
                     </div>
 
                     
                     <div style="padding-top: 2%;">
                         <label for="name">Who will look after your pet if you go on vacation or in case of emergency?</label>
-                        <input type="text" id="Fname" name="pet_emer" required> 
+                        <input type="text" id="Fname" name="Fname" required> 
                     </div>
 
                     
                     <div style="padding-top: 2%;">
                         <label for="name">How many hours in an average workday will your pet be left alone?</label>
-                        <input type="text" id="Fname" name="pet_hour" required> 
+                        <input type="text" id="Fname" name="Fname" required> 
                     </div>
 
+                    
                     <div style="margin-top: 2px;">
-                        <label for="pet_env">What steps will you take to introduce your new pet to his/her new surroundings?</label>
-                        <textarea id="vaccinated1" name="pet_env" rows="4" required></textarea>
+                        <label form="vaccinated1">What steps will you take to introduce your new pet to his/her new surroundings?</label>
+                        <textarea id="vaccinated1" name="vaccinated1" rows="4" required></textarea>
                     </div>
 
+                    
                     <div style="padding-top: 2%;">
                         <label>Does everyone in the family support your decision to adopt a pet?</label>
-                        <input type="radio" name="supp_pet" value="Yes"> Yes
-                        <input type="radio" name="supp_pet" value="No"> No
+                        <input type="radio" name="firsttime" value="Yes"> Yes
+                        <input type="radio" name="firsttime" value="No"> No
                     </div>
 
+                    
                     <div style="margin-top: 2px;">
                         <label form="vaccinated1">if no please explain:</label>
-                        <textarea id="vaccinated1" name="no_supp" rows="4" required></textarea>
+                        <textarea id="vaccinated1" name="vaccinated1" rows="4" required></textarea>
                     </div>
 
+                    
                     <div style="padding-top: 2%;">
                         <label>Do you have other pets?</label>
-                        <input type="radio" name="other_pet" value="Yes"> Yes
-                        <input type="radio" name="other_pet" value="No"> No
+                        <input type="radio" name="firsttime" value="Yes"> Yes
+                        <input type="radio" name="firsttime" value="No"> No
                     </div>
 
+                    
                     <div style="padding-top: 2%;">
                         <label>Have you had pets in the past?</label>
-                        <input type="radio" name="past_pet" value="Yes"> Yes
-                        <input type="radio" name="past_pet" value="No"> No
+                        <input type="radio" name="firsttime" value="Yes"> Yes
+                        <input type="radio" name="firsttime" value="No"> No
                     </div>
 
+                    
                     <div style="margin-top: 2px;">
                         <label for="file">Upload any Valid ID</label>
                         <input type="file" id="file" name="file" accept="image/*"> <!-- File upload input -->
                     </div>
+
+
+                    
+
                 </div>
+
+                
+            
+
             </div>
             
+
             <div style="padding: 5% 5% 5% 50%;">
                 <button type="submit">Submit</button> <!-- Submit button -->
             </div>
-        </div>
+       </div>
     </div>
     
     {% block body %} {% endblock %}

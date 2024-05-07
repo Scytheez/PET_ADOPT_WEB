@@ -3,39 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/ouranimals.css') }}"> <!-- Reference to external CSS -->
-    {% block head %} {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ouranimals.css') }}">
 </head>
 <body>
-    <!-- Navbar at the top with buttons -->
     <nav class="navbar">
-        <h1>Paws for a Cause: 
-            Adopt and Donate System</h1>
+        <h1>Paws for a Cause: Adopt and Donate System</h1>
         <a href="{{ url_for('dashboard') }}" class="nav-button">Home</a>
-        <a href="" class="nav-button">Our Animals</a>
+        <a href="{{ url_for('ouranimals') }}" class="nav-button">Our Animals</a>
         <a href="{{ url_for('rehome') }}" class="nav-button">Reho-Me</a>
         <a href="#" class="nav-button">Donation</a>
     </nav>
 
-    <!-- Main container with inner content -->
-    <div class="main-container"> 
-       <div class="inner">
-            <!-- Filter buttons for All, Dogs, and Cats -->
+    <div class="main-container">
+        <div class="inner">
             <div class="filter-buttons">
                 <button class="filter-button" id="all">All</button>
                 <button class="filter-button" id="dogs">Dogs</button>
                 <button class="filter-button" id="cats">Cats</button>
             </div>
 
-            <!-- Content area where filters will take effect -->
             <div class="content-area">
+                
                 <div class="container">
-                    
+                    {% if pets %}
+                        {% for pet in pets %}
+                            <div class="pet-card">
+                                <div class="pet-left">
+                                    <div class="pet-picture">
+                                   
+                                    </div>
+                                    <div class="adopt">
+                                        <a href="{{ url_for('adopt')}}"><button class="btn">Adopt Now</button></a>
+                                    </div>
+                                </div>
+                                <div class="pet-info">
+                                    <div class="pethead">
+                                        <h2>{{ pet[0] }}</h2>
+                                    </div>
+                                    <div class="pet-info-details"> 
+                                        <p>Age: {{ pet[1] }}</p>
+                                        <p>Gender: {{ pet[2] }}</p>
+                                        <p>Breed: {{ pet[3] }}</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No pets found.</p>
+                    {% endif %}
                 </div>
+                
             </div>
-       </div>
+
+           
+            <div class="pagination">
+                {% if page > 1 %}
+                    <a href="{{ url_for('ouranimals', page=page-1) }}" class="prevbutton">Previous</a>
+                {% endif %}
+                
+                {% if has_next %}
+                    <a href="{{ url_for('ouranimals', page=page+1) }}" class="nextbutton">Next</a>
+                {% endif %}
+            </div>
+        </div>
     </div>
-    
-    {% block body %} {% endblock %}
 </body>
 </html>
