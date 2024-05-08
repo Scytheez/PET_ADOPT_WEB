@@ -13,233 +13,224 @@
             Adopt and Donate System</h1>
         <a href="{{ url_for('dashboard') }}" class="nav-button">Home</a>
         <a href="{{ url_for('ouranimals')}}" class="nav-button">Our Animals</a>
-        <a href="#" class="nav-button">Reho-Me</a>
+        <a href="{{ url_for('rehome')}}" class="nav-button">Reho-Me</a>
         <a href="{{ url_for('donation')}}" class="nav-button">Donation</a>
     </nav>
 
     <!-- Main container with inner content -->
     <div class="main-container"> 
-       <div class="inner">
-            <!-- Title section -->
-            <div class="Title" style="padding-left: 2%;">
-                <h1>Adopt</h1> 
-            </div>
-
-            <!-- Content wrapper -->
-            <div class="content-wrapper">
-              
-                <div class="left-content">
-                    <img src="{{ url_for('static', filename='img/g_cash.png') }}" alt="Example Image">
+        <div class="inner">
+            
+                <!-- Title section -->
+                <div class="Title" style="padding-left: 2%;">
+                    <h1>Adopt</h1> 
                 </div>
 
-                <!-- Right content -->
-                <div class="right-content">
-                    <div style="text-align: center;">
-                        <p>Why you should adopt me</p>
-                    </div>
-
-                    <div>
-                        <p>TEEEEEEEEEEST</p>
-                    </div>
-
-                </div>
-            </div>
-
-            <div style="text-align: center;">
-                <h2>Applicant's Info</h2>
-            </div>
-            <div class="bottom_content">
-              
+                <!-- Content wrapper -->
+                <div class="content-wrapper">
                 
-                <div class="first">
+                    <div class="left-content">
+                        <img src="{{ url_for('static', filename='img/g_cash.png') }}" alt="Example Image">
+                    </div>
 
-                    <div>
-                        <label for="name">Name:</label>
-                        <div style="padding-top: 2%; ">
-                            <input type="text" id="Fname" name="Fname" required>
-                            <input type="text" id="Lname" name="Lname" required> 
-                        </div> 
+                    <!-- Right content -->
+                    <div class="right-content">
+                        <div style="text-align: center;">
+                            <p>Why you should adopt me</p>
+                        </div>
+
+                        <div>
+                            <p>TEEEEEEEEEEST</p>
+                        </div>
                     </div>
-        
+                </div>
+
+                <div style="text-align: center;">
+                    <h2>Applicant's Info</h2>
+                </div>
+                <div class="bottom_content">
+                
+                    <form action="{{ url_for('adopt') }}", method="post", enctype="multipart/form-data">
+                    <div class="first">
                     
-                    <div style="padding-top: 7%;">
-                        <label for="age">Address:</label>
-                        <input type="text" id="address" name="address" required>
-                    </div>
-        
-                    
-                    <div style="padding-top: 7%;">
-                        <div style="display: flex; flex-direction: row;">
-                            <label for="phone">Phone Number:</label>
-                            <input type="tel" id="phone" name="phone"> <!-- Telephone input for phone number -->
-                       
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required> 
+                        <div>
+                            <label for="name">Name:</label>
+                            <div style="padding-top: 2%; ">
+                                <input type="text" id="Fname" name="Fname" required>
+                                <input type="text" id="Lname" name="Lname" required> 
+                            </div> 
+                        </div>
+            
+                        
+                        <div style="padding-top: 7%;">
+                            <label for="age">Address:</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+            
+                        
+                        <div style="padding-top: 7%;">
+                            <div style="display: flex; flex-direction: row;">
+                                <label for="phone">Phone Number:</label>
+                                <input type="tel" id="phone" name="phone" required> <!-- Telephone input for phone number -->
+                        
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required> 
+                            </div>
+                            
                         </div>
                         
                     </div>
-                    
-                </div>
-
-                
-
-                
-                <div class="second">
-
-                    <div>
-                        <label for="occupation">Occupation:</label>
-                        <input type="text" id="occupation" name="occupation"> <!-- Text input for occupation -->
-                    </div>
-        
-              
-                    <div style="padding-top: 7%;">
-                        <label for="social">Social Media Profile:</label>
-                        <input type="text" id="social" name="social"> <!-- Text input for social media profile -->
-                    </div>
-        
-                   
-                    <div style="padding-top: 7%;">
-                        <label for="social">Birthdate:</label>
-                        <input type="date" id="bday" name="bday"> 
-                    </div>
-
-                </div>
-
-                <div class="third">
-
-                    <div> 
-                        <label>First time owning a pet:</label>
-                        <input type="radio" name="firsttime" value="Yes"> Yes
-                        <input type="radio" name="firsttime" value="No"> No
-                    </div>
 
                     
-                    <div style="padding-top: 2%;">
-                        <label>What type of building do you live:</label>
-                        <input type="radio" name="building" value="House"> House
-                        <input type="radio" name="building" value="Condo"> Condo
-                        <input type="radio" name="building" value="Apartment"> Apartment
-                    </div>
-
 
                     
-                    <div style="padding-top: 2%;">
-                        <label>Are any members of your household allergic to animals?:</label>
-                        <input type="radio" name="firsttime" value="Yes"> Yes
-                        <input type="radio" name="firsttime" value="No"> No
-                    </div>
+                    <div class="second">
 
-
-                    
-                    <div style="padding-top: 2%;">
-                        <label>What are you looking to adopt?</label>
                         <div>
-                        <input type="radio" name="firsttime" value="Yes"> Cat
-                        <input type="radio" name="firsttime" value="No"> Dog
-                        <input type="radio" name="firsttime" value="No"> Both
-                        <input type="radio" name="firsttime" value="No"> Not decided
+                            <label for="occupation">Occupation:</label>
+                            <input type="text" id="occupation" name="occupation" required> <!-- Text input for occupation -->
                         </div>
-                    </div>
-
-                    
-                    <div style="padding-top: 2%;">
-                        <label>Who do you live with:</label>
-                        <div style="display: flex; flex-direction: column;">
-                        <div style="margin-bottom: 1%;">
-                            <span style="margin-right: 8%;"><input type="checkbox" name="live" value="Yes"> Living Alone </span>
-                            <input type="checkbox" name="live" value="Yes"> Children over 18
-                        </div>
-                        <div style="margin-bottom: 1%;">
-                            <span style="margin-right: 7%;"><input type="checkbox" name="live" value="Yes"> Roommate(s)</span>
-                            <input type="checkbox" name="live" value="Yes"> Spouse
-                        </div>
-                        <div>
-                            <span style="margin-right: 4.6%;"><input type="checkbox" name="live" value="Yes"> Chldren below 18</span>
-                            <input type="checkbox" name="live" value="Yes"> Parents/Relatives
-                        </div>
-                        </div>
-                      
-
-                    </div>
-
-                    
-                    <div style="padding-top: 2%;">
-                        <label for="name">Who will be responsible for feeding, grooming, and generally caring of your pet?</label>
-                        <input type="text" id="Fname" name="Fname" required> 
-                    </div>
-
-                    
-                    <div style="padding-top: 2%;">
-                        <label for="name">Who will be financially responsible for your pet's needs (i.e. food, vet bills, etc,)?</label>
-                        <input type="text" id="Fname" name="Fname" required> 
-                    </div>
-
-                    
-                    <div style="padding-top: 2%;">
-                        <label for="name">Who will look after your pet if you go on vacation or in case of emergency?</label>
-                        <input type="text" id="Fname" name="Fname" required> 
-                    </div>
-
-                    
-                    <div style="padding-top: 2%;">
-                        <label for="name">How many hours in an average workday will your pet be left alone?</label>
-                        <input type="text" id="Fname" name="Fname" required> 
-                    </div>
-
-                    
-                    <div style="margin-top: 2px;">
-                        <label form="vaccinated1">What steps will you take to introduce your new pet to his/her new surroundings?</label>
-                        <textarea id="vaccinated1" name="vaccinated1" rows="4" required></textarea>
-                    </div>
-
-                    
-                    <div style="padding-top: 2%;">
-                        <label>Does everyone in the family support your decision to adopt a pet?</label>
-                        <input type="radio" name="firsttime" value="Yes"> Yes
-                        <input type="radio" name="firsttime" value="No"> No
-                    </div>
-
-                    
-                    <div style="margin-top: 2px;">
-                        <label form="vaccinated1">if no please explain:</label>
-                        <textarea id="vaccinated1" name="vaccinated1" rows="4" required></textarea>
-                    </div>
-
-                    
-                    <div style="padding-top: 2%;">
-                        <label>Do you have other pets?</label>
-                        <input type="radio" name="firsttime" value="Yes"> Yes
-                        <input type="radio" name="firsttime" value="No"> No
-                    </div>
-
-                    
-                    <div style="padding-top: 2%;">
-                        <label>Have you had pets in the past?</label>
-                        <input type="radio" name="firsttime" value="Yes"> Yes
-                        <input type="radio" name="firsttime" value="No"> No
-                    </div>
-
-                    
-                    <div style="margin-top: 2px;">
-                        <label for="file">Upload any Valid ID</label>
-                        <input type="file" id="file" name="file" accept="image/*"> <!-- File upload input -->
-                    </div>
-
-
-                    
-
-                </div>
-
+            
                 
+                        <div style="padding-top: 7%;">
+                            <label for="social">Social Media Profile:</label>
+                            <input type="text" id="social" name="social" required> <!-- Text input for social media profile -->
+                        </div>
             
+                    
+                        <div style="padding-top: 7%;">
+                            <label for="social">Birthdate:</label>
+                            <input type="date" id="bday" name="bday" required> 
+                        </div>
 
-            </div>
-            
+                    </div>
 
-            <div style="padding: 5% 5% 5% 50%;">
-                <button type="submit">Submit</button> <!-- Submit button -->
-            </div>
-       </div>
+                    <div class="third">
+
+                        <div> 
+                            <label>First time owning a pet:</label>
+                            <input type="radio" name="firsttime" value="Yes" required> Yes
+                            <input type="radio" name="firsttime" value="No" required> No
+                        </div>
+
+                        
+                        <div style="padding-top: 2%;">
+                            <label>What type of building do you live:</label>
+                            <input type="radio" name="building" value="House" required> House
+                            <input type="radio" name="building" value="Condo" required> Condo
+                            <input type="radio" name="building" value="Apartment" required> Apartment
+                        </div>
+
+
+                        
+                        <div style="padding-top: 2%;">
+                            <label>Are any members of your household allergic to animals?:</label>
+                            <input type="radio" name="allergic" value="Yes" required> Yes
+                            <input type="radio" name="allergic" value="No" required> No
+                        </div>
+
+
+                        
+                        <div style="padding-top: 2%;">
+                            <label>What are you looking to adopt?</label>
+                            <div>
+                            <input type="radio" name="what_pet" value="Yes" required> Cat
+                            <input type="radio" name="what_pet" value="No" required> Dog
+                            <input type="radio" name="what_pet" value="No" required> Both
+                            <input type="radio" name="what_pet" value="No" required> Not decided
+                            </div>
+                        </div>
+
+                        
+                        <div style="padding-top: 2%;">
+                            <label>Who do you live with:</label>
+                            <div style="display: flex; flex-direction: column;">
+                            <div style="margin-bottom: 1%;">
+                                <span style="margin-right: 8%;"><input type="checkbox" name="live" value="Yes"> Living Alone </span>
+                                <input type="checkbox" name="live" value="Yes"> Children over 18
+                            </div>
+                            <div style="margin-bottom: 1%;">
+                                <span style="margin-right: 7%;"><input type="checkbox" name="live" value="Yes"> Roommate(s)</span>
+                                <input type="checkbox" name="live" value="Yes"> Spouse
+                            </div>
+                            <div>
+                                <span style="margin-right: 4.6%;"><input type="checkbox" name="live" value="Yes"> Chldren below 18</span>
+                                <input type="checkbox" name="live" value="Yes"> Parents/Relatives
+                            </div>
+                            </div>
+                        
+
+                        </div>
+
+                        
+                        <div style="padding-top: 2%;">
+                            <label for="name">Who will be responsible for feeding, grooming, and generally caring of your pet?</label>
+                            <input type="text" id="Fname" name="pet_resp" required> 
+                        </div>
+
+                        
+                        <div style="padding-top: 2%;">
+                            <label for="name">Who will be financially responsible for your pet's needs (i.e. food, vet bills, etc,)?</label>
+                            <input type="text" id="Fname" name="pet_needs" required> 
+                        </div>
+
+                        
+                        <div style="padding-top: 2%;">
+                            <label for="name">Who will look after your pet if you go on vacation or in case of emergency?</label>
+                            <input type="text" id="Fname" name="pet_emer" required> 
+                        </div>
+
+                        
+                        <div style="padding-top: 2%;">
+                            <label for="name">How many hours in an average workday will your pet be left alone?</label>
+                            <input type="text" id="Fname" name="pet_hour" required> 
+                        </div>
+
+                        
+                        <div style="margin-top: 2px;">
+                            <label for="pet_env">What steps will you take to introduce your new pet to his/her new surroundings?</label>
+                            <textarea id="pet_env" name="pet_env" rows="4" required></textarea>
+                        </div>
+
+                        
+                        <div style="padding-top: 2%;">
+                            <label>Does everyone in the family support your decision to adopt a pet?</label>
+                            <input type="radio" name="pet_supp" value="Yes" required> Yes
+                            <input type="radio" name="pet_supp" value="No" required> No
+                        </div>
+
+                        
+                        <div style="margin-top: 2px;">
+                            <label for="not_supp">if no please explain:</label>
+                            <textarea id="not_supp" name="not_supp" rows="4" required></textarea>
+                        </div>
+
+                        
+                        <div style="padding-top: 2%;">
+                            <label>Do you have other pets?</label>
+                            <input type="radio" name="other_pet" value="Yes" required> Yes
+                            <input type="radio" name="other_pet" value="No" required> No
+                        </div>
+
+                        
+                        <div style="padding-top: 2%;">
+                            <label>Have you had pets in the past?</label>
+                            <input type="radio" name="past_pet" value="Yes" required> Yes
+                            <input type="radio" name="past_pet" value="No" required> No
+                        </div>
+
+                        
+                        <div style="margin-top: 2px;">
+                            <label for="file">Upload any Valid ID</label>
+                            <input type="file" id="file" name="file" accept="image/*" required> <!-- File upload input -->
+                        </div>
+                    </div>
+                </div>
+                <div style="padding: 5% 5% 5% 50%;">
+                    <button type="submit" value="submit">Submit</button> <!-- Submit button -->
+                </div>
+            </form>
+        </div>
     </div>
     
     {% block body %} {% endblock %}

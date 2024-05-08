@@ -98,7 +98,7 @@ def rehome():
 def donation():
     return render_template('donation.html')
 
-@app.route('/adopt')  
+@app.route('/adopt', methods=['GET', 'POST'])  
 def adopt():
     if request.method == 'POST':
         try:
@@ -112,9 +112,9 @@ def adopt():
             social = request.form['social']
             bday = request.form['bday']
 
-            f_pet = request.form['f_pet']
+            f_pet = request.form['firsttime']
             living_type = request.form['building']
-            allergy = request.form['allergy']
+            allergy = request.form['allergic']
             what_pet = request.form['what_pet']
             live = request.form['live']
 
@@ -124,20 +124,20 @@ def adopt():
             pet_hour = request.form['pet_hour']
             pet_env = request.form['pet_env']
             pet_supp = request.form['pet_supp']
-            no_supp = request.form['no_supp']
+            no_supp = request.form['not_supp']
             other_pet = request.form['other_pet']
             past_pet = request.form['past_pet']
 
-            valid_id = request.files.get('image')
+            valid_id = request.files.get('file')
             valid_id_path = None
             if valid_id and allowed_file(valid_id.filename):
                 filename = secure_filename(valid_id.filename)
-                valid_id_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                valid_id_path = os.path.join('static/uploads/id', filename)
                 valid_id.save(valid_id_path)
 
             db_conn.adopt_form(name, lname, addr, phone, email, occu, social, bday, f_pet, living_type,
                             allergy, what_pet, live, pet_resp, pet_needs, pet_emer, pet_hour, pet_env,
-                            pet_supp, no_supp, other_pet, past_pet, valid_id)
+                            pet_supp, no_supp, other_pet, past_pet)
         except Exception as e:
             print(e)
 
