@@ -15,7 +15,10 @@ class conn:
         except Exception as e:
             print('Error: ', e)
 
-        self.cursor = self.db_conn.cursor()
+        try:
+            self.cursor = self.db_conn.cursor()
+        except Exception as e:
+            print('Database not Connected:', e)
     
     def del_file_in_folder(self, folder_path):
             for filename in os.listdir(folder_path):
