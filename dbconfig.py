@@ -21,15 +21,18 @@ class conn:
             print('Database not Connected:', e)
     
     def del_file_in_folder(self, folder_path):
-            for filename in os.listdir(folder_path):
-                file_path = os.path.join(folder_path, filename)
-                try:
-                    if os.path.isfile(file_path) or os.path.islink(file_path):
-                        os.unlink(file_path)
-                    elif os.path.isdir(file_path):
-                        os.rmdir(file_path)
-                except Exception as e:
-                    print(file_path, e)
+            try:
+                for filename in os.listdir(folder_path):
+                    file_path = os.path.join(folder_path, filename)
+                    try:
+                        if os.path.isfile(file_path) or os.path.islink(file_path):
+                            os.unlink(file_path)
+                        elif os.path.isdir(file_path):
+                            os.rmdir(file_path)
+                    except Exception as e:
+                        print(file_path, e)
+            except Exception as e:
+                print(e)
 
     def adopt_form(self, name, lname, addr, phone, email, occu, social, bday, f_pet, living_type,
                     allergy, what_pet, live, pet_resp, pet_needs, pet_emer, pet_hour, pet_env,
@@ -50,7 +53,6 @@ class conn:
         self.cursor.execute(pet_qry, (f_pet, living_type, allergy, what_pet, live, pet_resp, pet_needs, pet_emer, pet_hour, pet_env, pet_supp, no_supp, other_pet, past_pet))
 
         self.db_conn.commit()
-        self.cursor.close()
 
         # Delete images in upload folder
         self.del_file_in_folder('static/uploads/id')
@@ -85,7 +87,6 @@ class conn:
         self.cursor.execute(user_qry, (name, age, email, occupation, soc_media, phone_num, 'rehome', id_encodestring, ))
 
         self.db_conn.commit()
-        self.cursor.close()
 
         # Delete images in upload folder
         self.del_file_in_folder('static/uploads/pets')
