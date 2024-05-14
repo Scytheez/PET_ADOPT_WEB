@@ -3,32 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/dash.css') }}"> <!-- Reference to external CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dash.css') }}">
     {% block head %} {% endblock %}
     <style>
-        .all{
-         background-image: url('{{ url_for("static", filename="img/dogsncats.png") }}');
-         background-size: 20%; 
-         background-repeat: no-repeat;
+        .all {
+            background-image: url('{{ url_for("static", filename="img/dogsncats.png") }}');
+            background-size: 20%; 
+            background-repeat: no-repeat;
         }
-        .dog{
-         background-image: url('{{ url_for("static", filename="img/cool1.png") }}');
-         background-size: 20%; 
-         background-repeat: no-repeat;
+        .dog {
+            background-image: url('{{ url_for("static", filename="img/cool1.png") }}');
+            background-size: 20%; 
+            background-repeat: no-repeat;
         }
-        .cat{
-        background-image: url('{{ url_for("static", filename="img/pusa1.png") }}');
-         background-size: 18%; 
-         background-repeat: no-repeat;
+        .cat {
+            background-image: url('{{ url_for("static", filename="img/pusa1.png") }}');
+            background-size: 18%; 
+            background-repeat: no-repeat;
         }
-    
     </style>
 </head>
 <body>
     <!-- Navbar at the top with three buttons -->
     <nav class="navbar">
-        <h1>Paws for a Cause: 
-            Adopt and Donate System</h1>
+        <h1>Paws for a Cause: Adopt and Donate System</h1>
         <a href="#" class="nav-button">Home</a>
         <a href="{{ url_for('ouranimals')}}" class="nav-button">Our Animals</a>
         <a href="{{ url_for('rehome') }}" class="nav-button">Reho-Me</a>
@@ -37,21 +35,25 @@
 
     <!-- Main container with left and right box groups -->
     <div class="main-container"> 
-       <div class="inner">
-            <div class="all">
-                <p>All Animals</p>
-            </div>
+        <div class="inner">
+            <a href="{{ url_for('ouranimals', category='All') }}">
+                <div class="all">
+                    <p>All Animals</p>
+                </div>
+            </a>
 
-            <div class="dog">
-                <p>All Dogs</p>
-            </div>
+            <a href="{{ url_for('ouranimals', category='Dogs') }}">
+                <div class="dog">
+                    <p>All Dogs</p>
+                </div>
+            </a>
 
-            <div class="cat">
-                <p>All Cats</p>
-            </div>
-
-       </div>
-        
+            <a href="{{ url_for('ouranimals', category='Cats') }}">
+                <div class="cat">
+                    <p>All Cats</p>
+                </div>
+            </a>
+        </div>
     </div>
     
     {% block body %} {% endblock %}

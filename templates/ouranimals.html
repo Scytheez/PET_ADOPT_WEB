@@ -17,23 +17,21 @@
     <div class="main-container">
         <div class="inner">
             <div class="filter-buttons">
-                <button class="filter-button" id="all">All</button>
-                <button class="filter-button" id="dogs">Dogs</button>
-                <button class="filter-button" id="cats">Cats</button>
+                <a href="{{ url_for('ouranimals', category='All') }}"><button class="filter-button {% if category == 'All' %}active{% endif %}">All</button></a>
+                <a href="{{ url_for('ouranimals', category='Dogs') }}"><button class="filter-button {% if category == 'Dogs' %}active{% endif %}">Dogs</button></a>
+                <a href="{{ url_for('ouranimals', category='Cats') }}"><button class="filter-button {% if category == 'Cats' %}active{% endif %}">Cats</button></a>
             </div>
 
             <div class="content-area">
-                
                 <div class="container">
                     {% if pets %}
                         {% for pet in pets %}
                             <div class="pet-card">
                                 <div class="pet-left">
                                     <div class="pet-picture">
-                                   
                                     </div>
                                     <div class="adopt">
-                                        <a href="{{ url_for('adopt')}}"><button class="btn">Adopt Now</button></a>
+                                        <a href="{{ url_for('adopt') }}"><button class="btn">Adopt Now</button></a>
                                     </div>
                                 </div>
                                 <div class="pet-info">
@@ -44,8 +42,8 @@
                                         <p>Age: {{ pet[1] }}</p>
                                         <p>Gender: {{ pet[2] }}</p>
                                         <p>Breed: {{ pet[3] }}</p>
+                                        <p>Type: {{ pet[4] }}</p>
                                     </div>
-                                    
                                 </div>
                             </div>
                         {% endfor %}
@@ -53,17 +51,15 @@
                         <p>No pets found.</p>
                     {% endif %}
                 </div>
-                
             </div>
 
-           
             <div class="pagination">
                 {% if page > 1 %}
-                    <a href="{{ url_for('ouranimals', page=page-1) }}" class="prevbutton">Previous</a>
+                    <a href="{{ url_for('ouranimals', page=page-1, category=category) }}" class="prevbutton">Previous</a>
                 {% endif %}
                 
                 {% if has_next %}
-                    <a href="{{ url_for('ouranimals', page=page+1) }}" class="nextbutton">Next</a>
+                    <a href="{{ url_for('ouranimals', page=page+1, category=category) }}" class="nextbutton">Next</a>
                 {% endif %}
             </div>
         </div>
