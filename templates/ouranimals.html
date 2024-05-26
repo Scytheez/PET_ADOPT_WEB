@@ -29,9 +29,14 @@
                             <div class="pet-card">
                                 <div class="pet-left">
                                     <div class="pet-picture">
+                                        {% if pet[4] %}
+                                        <img src="data:image/jpeg;base64,{{ pet[4].decode('utf-8') }}" alt="Pet Image">
+                                    {% else %}
+                                        <img src="{{ url_for('static', filename='images/default-pet.jpg') }}" alt="Default Pet Image">
+                                    {% endif %}
                                     </div>
                                     <div class="adopt">
-                                        <a href="{{ url_for('adopt') }}"><button class="btn">Adopt Now</button></a>
+                                        <a href="{{ url_for('adopt', pet_id=pet[5]) }}"><button class="btn">Adopt Now</button></a>
                                     </div>
                                 </div>
                                 <div class="pet-info">
@@ -42,8 +47,8 @@
                                         <p>Age: {{ pet[1] }}</p>
                                         <p>Gender: {{ pet[2] }}</p>
                                         <p>Breed: {{ pet[3] }}</p>
-                                        <p>Type: {{ pet[4] }}</p>
                                     </div>
+                                    
                                 </div>
                             </div>
                         {% endfor %}

@@ -79,8 +79,7 @@ body {
     height: auto; /* Adaptive height */
 }
 .bottom_content{
-    display: flex; /* Enable Flexbox */
-    align-content: flex-start;
+    
     flex-wrap: wrap;
     padding: 20px; /* Internal padding */
     gap: 20px; /* Space between elements */
@@ -93,23 +92,21 @@ body {
     justify-content: space-between; /* Space rows evenly */
     padding: 10px; /* Padding for internal spacing */
     background-color: #ffffff; /* White background */
-    border-radius: 10px; /* Rounded corners */
     height: auto; /* Full height */
-    width: 58%; /* Occupies most of the space */
-    
-    
+    width: 50%; /* Occupies most of the space */
+
 }
+
 .second{
     display: flex; /* Enable Flexbox */
     flex-direction: column; /* Vertical alignment */
-    justify-content: space-between; /* Space rows evenly */
-    padding: 10px; /* Padding for internal spacing */
+    justify-content: space-between; /* Space rows evenly */ 
     background-color: #ffffff; /* White background */
     border-radius: 10px; /* Rounded corners */
-    height: auto; /* Full height */
-    width: 35%; /* Occupies most of the space */
-    
+    width: 42%; /* Occupies most of the space */  
+    padding-left: 10%; 
 }
+
 .third{
     padding: 10px; /* Padding for internal spacing */
     background-color: #ffffff; /* White background */
@@ -117,6 +114,11 @@ body {
     height: 100%; /* Full height */
     width: 100%; /* Occupies most of the space */
    
+}
+.ftop{
+    
+    display: flex;
+    flex-direction: row;
 }
 
 /* Left and Right divs inside the content-wrapper */

@@ -28,38 +28,24 @@ def ouranimals():
 
     items_per_page = 10
     page = int(request.args.get('page', 1))
-    category = request.args.get('category', 'All')
 
     offset = (page - 1) * items_per_page
 
-    query_params = ['available', items_per_page, offset]
-    count_query_params = ['available']
-
-    if category == 'All':
-        query = f"SELECT pet_name, pet_age, pet_gender, pet_breed, pet_type, description, vaccinated, vaccine_type FROM PET WHERE pet_status = %s LIMIT %s OFFSET %s"
-    else:
-        query = f"SELECT pet_name, pet_age, pet_gender, pet_breed, pet_type, description, vaccinated, vaccine_type FROM PET WHERE pet_status = %s AND pet_type = %s LIMIT %s OFFSET %s"
-        query_params.insert(1, category)
-        count_query_params.append(category)
-
-    db_conn.cursor.execute(query, tuple(query_params))
+    query = f"SELECT pet_name, pet_age, pet_gender, pet_breed, picture FROM PET WHERE pet_status = 'available' LIMIT {items_per_page} OFFSET {offset}"
+    db_conn.cursor.execute(query)
     pets = db_conn.cursor.fetchall()
 
-    if category == 'All':
-        count_query = f"SELECT COUNT(*) FROM PET WHERE pet_status = %s"
-    else:
-        count_query = f"SELECT COUNT(*) FROM PET WHERE pet_status = %s AND pet_type = %s"
 
-    db_conn.cursor.execute(count_query, tuple(count_query_params))
+    query = f"SELECT COUNT(*) FROM PET WHERE pet_status = 'available'"
+    db_conn.cursor.execute(query)
     total_pets = db_conn.cursor.fetchone()[0]
 
     has_next = (offset + items_per_page) < total_pets
 
     db_conn.cursor.close()
-    db_conn.db_conn.close()
+    db_conn.db_conn.close() 
 
-    return render_template('ouranimals.html', pets=pets, page=page, has_next=has_next, category=category)
-
+    return render_template('ouranimals.html', pets=pets, page=page, has_next=has_next)
 
 @app.route('/rehome', methods=['GET', 'POST'])  
 def rehome():

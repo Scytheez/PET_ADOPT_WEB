@@ -33,7 +33,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: auto;
+    height: 100%;
     background-color: #FDE1CC;
 }
 
@@ -41,7 +41,7 @@ body {
 .inner {
     background-color: white;
     margin: 3%;
-    height: auto;
+    height: 100%;
     border-radius: 30px;
     width: 90%; /* Ensure width for inner content */
     padding: 20px; /* Add padding for inner content */
@@ -115,10 +115,19 @@ body {
 /* Picture section for pet-card */
 .pet-picture {
     width: 100%; 
-    height: 70%; 
-    background: lightgray; 
+    height: 65%; 
     display: flex;
     border-radius: 20px;
+    margin-left: 5%;
+    margin-top: 5%;
+    
+}
+.pet-picture img {
+    width: 90%; /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    margin: 10px; /* Add some margin */
 }
 
 /* Pet info section in pet-card */
@@ -133,7 +142,7 @@ body {
     text-align: center;
     text-decoration: none; 
     color: black; 
-    margin-bottom: 2%;
+    margin-bottom: 0%;
 }
 .btn{
     background-color: #CBF9E9;

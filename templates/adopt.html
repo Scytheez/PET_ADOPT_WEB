@@ -28,20 +28,35 @@
 
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
-                
                     <div class="left-content">
-                        <img src="{{ url_for('static', filename='img/g_cash.png') }}" alt="Example Image">
+                        {% if pet_info %}
+                            {% if pet_info[4] %}
+                                <img src="data:image/jpeg;base64,{{ pet[4].decode('utf-8') }}" alt="Pet Image">
+                            {% else %}
+                                <img src="{{ url_for('static', filename='images/default-pet.jpg') }}" alt="Default Pet Image">
+                            {% endif %}
+                        {% else %}
+                            <img src="{{ url_for('static', filename='images/default-pet.jpg') }}" alt="Default Pet Image">
+                        {% endif %}
                     </div>
 
                     <!-- Right content -->
                     <div class="right-content">
-                        <div style="text-align: center;">
-                            <p>Why you should adopt me</p>
-                        </div>
-
-                        <div>
-                            <p>TEEEEEEEEEEST</p>
-                        </div>
+                        {% if pet_info %}
+                            <div style="text-align: center;">
+                                <p>Why you should adopt me</p>
+                            </div>
+                            <div>
+                                <h2>{{ pet_info[0] }}</h2>
+                                <p>Age: {{ pet_info[1] }}</p>
+                                <p>Gender: {{ pet_info[2] }}</p>
+                                <p>Breed: {{ pet_info[3] }}</p>
+                            </div>
+                        {% else %}
+                            <div style="text-align: center;">
+                                <p>No pet information available.</p>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
 
@@ -51,6 +66,10 @@
                 <div class="bottom_content">
                 
                     <form action="{{ url_for('adopt') }}", method="post", enctype="multipart/form-data">
+
+                        <div class="ftop">
+
+                        
                     <div class="first">
                     
                         <div>
@@ -82,11 +101,10 @@
                     </div>
 
                     
-
                     
                     <div class="second">
 
-                        <div>
+                        <div style="padding-top: 7%;">
                             <label for="occupation">Occupation:</label>
                             <input type="text" id="occupation" name="occupation" required> <!-- Text input for occupation -->
                         </div>
@@ -104,6 +122,8 @@
                         </div>
 
                     </div>
+
+                </div>
 
                     <div class="third">
 
@@ -202,7 +222,7 @@
                         
                         <div style="margin-top: 2px;">
                             <label for="not_supp">if no please explain:</label>
-                            <textarea id="not_supp" name="not_supp" rows="4"></textarea>
+                            <textarea id="not_supp" name="not_supp" rows="4" required></textarea>
                         </div>
 
                         

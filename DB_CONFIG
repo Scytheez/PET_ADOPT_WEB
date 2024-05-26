@@ -1,0 +1,65 @@
+
+DATABASE CREATION:
+
+CREATE TABLE USER (
+user_id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(50),
+lname VARCHAR(50),
+address VARCHAR(255),
+age INT,
+bday DATE,
+email VARCHAR(255),
+occupation VARCHAR(255),
+social_media_profile VARCHAR(255),
+phone_number BIGINT,
+user_type ENUM('adopt', 'rehome'),
+valid_id MEDIUMBLOB
+);
+
+CREATE TABLE PET (
+pet_id INT AUTO_INCREMENT PRIMARY KEY,
+pet_name VARCHAR(18),
+pet_age TINYINT,
+pet_gender VARCHAR(18),
+pet_breed VARCHAR(255),
+pet_type VARCHAR(18),
+pet_status ENUM('adopted', 'available'),
+description TEXT,
+vaccinated VARCHAR(18),
+vaccine_type VARCHAR(255),
+picture MEDIUMBLOB
+);
+
+CREATE TABLE ADOPT_PET (
+adopt_id INT AUTO_INCREMENT PRIMARY KEY,
+user_id INT,
+pet_id INT,
+first_pet VARCHAR(18),
+living_type VARCHAR(18),
+allergic VARCHAR(18),
+what_pet VARCHAR(18),
+live_with VARCHAR(25),
+pet_health TEXT,
+pet_needs TEXT,
+pet_emergency TEXT,
+pet_alone TEXT,
+pet_env TEXT,
+fam_supp VARCHAR(18),
+if_no_explain TEXT,
+other_pet VARCHAR(18),
+past_pet VARCHAR(18),
+CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES USER(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_pet_id FOREIGN KEY (pet_id) REFERENCES PET(pet_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE REHOME_PET (
+rehome_id INT AUTO_INCREMENT PRIMARY KEY,
+user_id INT,
+pet_id INT,
+ownership VARCHAR(18),
+reason TEXT,
+CONSTRAINT fk_user_id_r FOREIGN KEY (user_id) REFERENCES USER(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT fk_pet_id_r FOREIGN KEY (pet_id) REFERENCES PET(pet_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+ALTER TABLE tb_name AUTO_INCREMENT=1001;
