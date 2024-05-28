@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from dbconfig import conn
 import os
 from werkzeug.utils import secure_filename
+from knn_model import knn_classifier, vectorizer
 
 app =Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
@@ -97,6 +98,31 @@ def rehome():
 @app.route('/donation')  
 def donation():
     return render_template('donation.html')
+
+@app.route('/predictor', methods=['GET', 'POST'])
+def predictor():
+    if request.method == 'POST':
+        try:
+            # Get selected traits from the form
+            selected_traits = request.form.getlist('describe')
+
+            # Predict pet attitudes based on the selected traits
+            predicted_probabilities = knn_classifier.predict_proba(vectorizer.transform([' '.join(selected_traits)]))[0]
+            predicted_pet_attitudes = knn_classifier.classes_
+
+            # Prepare data to display on webpage
+            results = []
+            for attitude, probability in zip(predicted_pet_attitudes, predicted_probabilities):
+                results.append({'attitude': attitude, 'probability': probability})
+
+            return render_template('prediction_result.html', results=results)
+
+        except Exception as e:
+            error_message = "An error occurred: " + str(e)
+            return render_template('error.html', error_message=error_message)
+
+    else:
+        return render_template('predictor.html')
 
 @app.route('/adopt', methods=['GET', 'POST'])  
 def adopt():

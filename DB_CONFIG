@@ -11,7 +11,7 @@ bday DATE,
 email VARCHAR(255),
 occupation VARCHAR(255),
 social_media_profile VARCHAR(255),
-phone_number BIGINT,
+phone_number VARCHAR(25),
 user_type ENUM('adopt', 'rehome'),
 valid_id MEDIUMBLOB
 );

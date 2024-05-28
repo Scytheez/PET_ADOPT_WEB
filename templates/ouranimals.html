@@ -7,11 +7,12 @@
 </head>
 <body>
     <nav class="navbar">
-        <h1>Paws for a Cause: Adopt and Donate System</h1>
+        <h1>Paws for a Cause: 
+            Adoption System</h1>
         <a href="{{ url_for('dashboard') }}" class="nav-button">Home</a>
         <a href="{{ url_for('ouranimals') }}" class="nav-button">Our Animals</a>
         <a href="{{ url_for('rehome') }}" class="nav-button">Reho-Me</a>
-        <a href="#" class="nav-button">Donation</a>
+        <a href="{{ url_for('donation') }}" class="nav-button">Donation</a>
     </nav>
 
     <div class="main-container">
@@ -20,6 +21,10 @@
                 <a href="{{ url_for('ouranimals', category='All') }}"><button class="filter-button {% if category == 'All' %}active{% endif %}">All</button></a>
                 <a href="{{ url_for('ouranimals', category='Dogs') }}"><button class="filter-button {% if category == 'Dogs' %}active{% endif %}">Dogs</button></a>
                 <a href="{{ url_for('ouranimals', category='Cats') }}"><button class="filter-button {% if category == 'Cats' %}active{% endif %}">Cats</button></a>
+                <div class="adopt1">
+                    <a href="{{ url_for('predictor') }}"><button class="btn">Find the suitable pet for you</button></a>
+                </div>
+
             </div>
 
             <div class="content-area">
