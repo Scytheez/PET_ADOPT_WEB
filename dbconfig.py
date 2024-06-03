@@ -6,10 +6,17 @@ class conn:
     def __init__(self):
         try:
             self.db_conn = mysql.connector.connect(
+<<<<<<< HEAD
                 host='localhost', 
                 user='',                    #Change me
                 password='',                #Change me
                 database='PET_ADOPT_SYS'    #Change me
+=======
+                host='localhost',
+                user='ubunts',
+                password='Changeme#123',
+                database='PET_ADOPT_SYS'
+>>>>>>> bc196a921fccea737c5fd930710533a3050f82b3
             )
             print('Successfully Connected to Database!')
         except Exception as e:

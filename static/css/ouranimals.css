@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> bc196a921fccea737c5fd930710533a3050f82b3
 /* Reset default body margins and padding */
 body {
     margin: 0;
@@ -184,4 +187,8 @@ body {
 }
 .nextbutton, .prevbutton:hover {
     background-color: #F3CA52;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> bc196a921fccea737c5fd930710533a3050f82b3

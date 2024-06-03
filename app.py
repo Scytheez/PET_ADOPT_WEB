@@ -2,11 +2,16 @@ from flask import Flask, render_template, request
 from dbconfig import conn
 import os
 from werkzeug.utils import secure_filename
+<<<<<<< HEAD
 from flask import Flask, render_template, request
 from knn_model import knn_classifier, vectorizer
 
 
 
+=======
+from knn_model import knn_classifier, vectorizer
+
+>>>>>>> bc196a921fccea737c5fd930710533a3050f82b3
 app =Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -26,7 +31,11 @@ def index():
 def dashboard():
     return render_template('dashboard.html')
 
+<<<<<<< HEAD
 @app.route('/ouranimals')  
+=======
+@app.route('/ouranimals')
+>>>>>>> bc196a921fccea737c5fd930710533a3050f82b3
 def ouranimals():
     db_conn = conn()
 
@@ -102,7 +111,10 @@ def rehome():
 def donation():
     return render_template('donation.html')
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bc196a921fccea737c5fd930710533a3050f82b3
 @app.route('/predictor', methods=['GET', 'POST'])
 def predictor():
     if request.method == 'POST':
@@ -173,8 +185,13 @@ def adopt():
 
     return render_template('adopt.html')
 
+<<<<<<< HEAD
 
 
 if __name__ == "__main__":
     app.run(debug=True)
 
+=======
+if __name__ == "__main__":
+    app.run(debug=True)
+>>>>>>> bc196a921fccea737c5fd930710533a3050f82b3

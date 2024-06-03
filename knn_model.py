@@ -9,7 +9,12 @@ data = {
                         ['patient', 'confident', 'experienced', 'firm', 'understanding', 'nurture'],  # aggressive
                         ['patient', 'energetic', 'interactive', 'tolerable', 'engaging'],  # playful
                         ['patient', 'gentle', 'relaxed', 'tranquil', 'observant'],  # calm
+<<<<<<< HEAD
                         ['patient', 'loving', 'gentle', 'relaxed', 'warm-hearted', 'interactive', 'nurture']]  # affectionate
+=======
+                        ['patient', 'loving', 'gentle', 'relaxed', 'warm-hearted', 'interactive', 'nurture']  # affectionate
+                    ]
+>>>>>>> bc196a921fccea737c5fd930710533a3050f82b3
 }
 
 # Create DataFrame
