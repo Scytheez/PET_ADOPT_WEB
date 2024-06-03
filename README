@@ -1,0 +1,9 @@
+SET UP VIRTUALENV = "virtualenv env"
+
+ACTIVATE VIRTUALENV IN CMD = ".\env\Scripts\activate.bat"
+
+INSTALL REQUIREMENTS = "pip install -r requirements.txt"
+INSTALL setuptools IF NEEDED
+
+RUN "DB_CONFIG" ON YOUR MYSQL
+CHANGE MYSQL CONFIG IN "dbconfig.py"

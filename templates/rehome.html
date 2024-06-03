@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rehome.css') }}"> 
+    {% block head %} {% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Paws for a Cause: 
+            Adopt and Donate System</h1>
+        <a href="{{ url_for('dashboard') }}" class="nav-button">Home</a>
+        <a href="{{ url_for('ouranimals')}}" class="nav-button">Our Animals</a>
+        <a href="{{ url_for('rehome') }}" class="nav-button">Reho-Me</a>
+        <a href="{{ url_for('donation')}}" class="nav-button">Donation</a>
+    </nav>
+
+    <!-- Main container with inner content -->
+    <div class="main-container"> 
+        <div class="inner">
+
+            <!-- Title section -->
+            <div class="Title" style="padding-left: 2%;">
+                <h1>Reho-me</h1> 
+            </div>
+
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+                <!-- Left content -->
+                <div class="left-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+
+                <!-- Right content -->
+                <div class="right-content">
+                    <div class="left_row">
+
+                        <form action="{{ url_for('rehome') }}" method="POST" enctype="multipart/form-data"> <!-- Form action and method -->
+                            <div style="margin-top: 10px;">
+                                <label for="pet_name">Name:</label>
+                                <input type="text" id="pet_name" name="pet_name" required> <!-- Name field -->
+                            </div>
+
+                            <div style="margin-top: 10px;">
+                                <label for="pet_age">Age:</label>
+                                <input type="number" id="pet_age" name="pet_age" min="0" required> <!-- Age field -->
+                            </div>
+
+                            <div style="margin-top: 10px;">
+                                <label for="gender">Gender:</label>
+                                <input type="radio" id="male" name="gender" value="Male"> Male <!-- Radio buttons for gender -->
+                                <input type="radio" id="female" name="gender" value="Female"> Female
+                            </div>
+
+                            <div style="margin-top: 10px;">
+                                <label for="breed">Breed:</label>
+                                <input type="text" id="breed" name="breed" required> <!-- Breed field -->
+                            </div>
+
+                            <div style="margin-top: 10px;">
+                                <label>Ownership:</label>
+                                <input type="radio" name="ownership" value="Previous"> Previous
+                                <input type="radio" name="ownership" value="New"> New
+                            </div>
+
+                            <div style="margin-top: 10px;">
+                                <label>Type:</label>
+                                <input type="radio" name="type" value="Cat"> Cat
+                                <input type="radio" name="type" value="Dog"> Dog
+                            </div>
+
+                            <div style="margin-top: 10px;">
+                                <label for="reasons">Reasons:</label>
+                                <textarea id="reasons" name="reasons" rows="4" required></textarea> 
+                            </div>
+                    </div>
+
+                    <div class="right_row">
+                        <div style="margin-top: 10px;">
+                            <label for="describe">Describe your Pet:</label>
+                            <textarea id="describe" name="describe" rows="4" required></textarea>
+                        </div>
+
+                        <div style="margin-top: 10px;">
+                            <label>Vaccinated:</label>
+                            <input type="radio" name="Vaccinated" value="Yes"> Yes
+                            <input type="radio" name="Vaccinated" value="No"> No
+                        </div>
+                        
+                        <div style="margin-top: 10px;">
+                            <label for="vaccinated1">If Vaccinated state the type of vaccine/s and 
+                                state the date when was your dog vaccinated:</label>
+                            <textarea id="vaccinated1" name="vaccinated1" rows="4" required></textarea>
+                        </div>
+                        
+                        <div style="margin-top: 10px;">
+                            <label for="file">Upload a proper and updated picture of the pet</label>
+                            <input type="file" id="file" name="file" accept="image/*" required> <!-- File upload input -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom_content">
+                <div class="first">
+
+                    <div style="padding-top: 7%;">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required> <!-- Text input for name -->
+                    </div>
+
+                    <div style="padding-top: 7%;">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" min="0" required> <!-- Number input for age -->
+                    </div>
+
+                    <div style="padding-top: 7%;">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required> <!-- Email input -->
+                    </div>
+                </div>
+
+                <div class="second">
+
+                    <div style="padding-top: 7%;">
+                        <label for="occupation">Occupation:</label>
+                        <input type="text" id="occupation" name="occupation"> <!-- Text input for occupation -->
+                    </div>
+
+                    <div style="padding-top: 7%;">
+                        <label for="social">Social Media Profile:</label>
+                        <input type="text" id="social" name="social"> <!-- Text input for social media profile -->
+                    </div>
+
+                    <div style="padding-top: 7%;">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone"> <!-- Telephone input for phone number -->
+                    </div>
+                </div>
+
+                <div class="third">
+                    <div style="padding-top: 30%;">
+                        <label for="image">Upload Image:</label>
+                        <input type="file" id="image" name="image" accept="image/*" required> <!-- File input for image upload -->
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding: 5% 5% 5% 50%;">
+                <button type="submit" value="Submit">Submit</button> <!-- Submit button -->
+            </div>
+            </form>
+    </div>
+    {% block body %} {% endblock %}
+</body>
+</html>

@@ -1,0 +1,236 @@
+
+/* Reset default body margins and padding */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar container */
+.navbar {
+    display: flex; /* Enable Flexbox for horizontal arrangement */
+    justify-content: space-around; /* Equally space the buttons */
+    align-items: center; /* Center the buttons vertically */
+    background-color: #333; /* Dark background for contrast */
+    color: white; /* White text for visibility */
+    height: 70px; /* Fixed height for the navbar */
+}
+
+/* Navbar buttons */
+.nav-button {
+    text-decoration: none; /* No underline */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for button-like appearance */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+.nav-button:hover {
+    background-color: #555; /* Change background on hover */
+}
+
+/* Outer container */
+.main-container {
+    display: flex; /* Enable Flexbox */
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: stretch; /* Stretch vertically to fill container */
+    height: calc(100vh - 50px); /* Occupy the full viewport, minus the navbar height */
+    overflow-y: scroll; /* Prevent overflow and scrollbars */
+    background-color: #FDE1CC;
+}
+.inner {
+    background-color: white;
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding for internal spacing */
+    height: auto; /* Adaptive height */
+    width: 100%; /* Full width */
+    margin-bottom: 30px; /* Space at the bottom */
+}
+
+/* Main container */
+.main-container {
+    display: flex; /* Enable Flexbox */
+    justify-content: flex-start; /* Align content to the start */
+    align-items: flex-start; /* Align content to the top */
+    padding: 20px; /* Optional padding */
+    background-color: #FDE1CC; /* Background color */
+    height: auto; /* Adaptive height */
+    overflow: hidden;
+}
+
+/* Inner container */
+.inner {
+    background-color: white;
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Internal padding */
+    height: auto; /* Adaptive height */
+    width: 100%; /* Full width */
+    margin-bottom: 3%; /* Space at the bottom */
+    margin-top: 3%;
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+/* Content wrapper */
+.content-wrapper {
+    display: flex; /* Enable Flexbox */
+    flex-direction: row; /* Horizontal layout */
+    justify-content: space-between; /* Space between elements */
+    padding: 20px; /* Internal padding */
+    gap: 20px; /* Space between elements */
+    height: auto; /* Adaptive height */
+}
+.bottom_content{
+    display: flex; /* Enable Flexbox */
+    flex-direction: row; /* Horizontal layout */
+    justify-content: space-between; /* Space between elements */
+    padding: 20px; /* Internal padding */
+    gap: 20px; /* Space between elements */
+    height: auto; /* Adaptive height */
+}
+
+.first{
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Vertical alignment */
+    justify-content: space-between; /* Space rows evenly */
+    padding: 10px; /* Padding for internal spacing */
+    background-color: #ffffff; /* White background */
+    
+    border-radius: 10px; /* Rounded corners */
+    height: 100%; /* Full height */
+    width: 65%; /* Occupies most of the space */
+    
+}
+.second{
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Vertical alignment */
+    justify-content: space-between; /* Space rows evenly */
+    padding: 10px; /* Padding for internal spacing */
+    background-color: #ffffff; /* White background */
+    
+    border-radius: 10px; /* Rounded corners */
+    height: 100%; /* Full height */
+    width: 65%; /* Occupies most of the space */
+}
+.third{
+    display: flex; /* Enable Flexbox */
+    flex-direction: row; /* Vertical alignment */
+    justify-content: space-between; /* Space rows evenly */
+    padding: 10px; /* Padding for internal spacing */
+    background-color: #ffffff; /* White background */
+   
+    border-radius: 10px; /* Rounded corners */
+    height: 100%; /* Full height */
+    width: 65%; /* Occupies most of the space */
+}
+
+/* Left and Right divs inside the content-wrapper */
+.left-content{
+    text-align: justify;
+    font-size: 25px;
+    width: 25%; /* Each div occupies nearly half the width */
+    padding: 10px; /* Padding inside the div */
+    border-radius: 10px; /* Rounded corners */
+}
+.right-content {
+    display: flex; /* Enable Flexbox */
+    flex-direction: row; /* Vertical alignment */
+    justify-content: space-between; /* Space rows evenly */
+    padding: 10px; /* Padding for internal spacing */
+    background-color: #ffffff; /* White background */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    height: 100%; /* Full height */
+    width: 65%; /* Occupies most of the space */
+}
+
+/* Style for the individual rows within the right-content */
+.left_row{
+    padding: 10px; /* Internal padding */
+    border-radius: 10px; /* Rounded corners */
+    background-color: white; /* Light gray background */
+   
+    height: auto; /* Adjust height based on content */
+    margin-bottom: 10px; /* Space between rows */
+    width: 50%; /* Full width */
+    margin-top: 10px;
+}
+.right_row {
+    padding: 10px; /* Internal padding */
+    border-radius: 10px; /* Rounded corners */
+    background-color: white; /* Light gray background */
+
+    height: auto; /* Adjust height based on content */
+    margin-bottom: 10px; /* Space between rows */
+    width: 50%; /* Full width */
+    margin-top: 10px;
+
+}
+label {
+    font-weight: bold; /* Bold text for emphasis */
+    color: #333; /* Dark text for readability */
+    display: block; /* Ensure proper spacing */
+    margin-bottom: 10px; /* Space between label and input */
+}
+
+/* General styles for text inputs */
+input[type="text"], input[type="number"], textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for user comfort */
+    border: none; /* Remove all borders */
+    border-bottom: 1px solid black; /* Only bottom border */
+    border-radius: 0; /* No rounded corners */
+    background-color: transparent; /* Transparent background */
+    box-sizing: border-box; /* Include padding in width calculation */
+    outline: none; /* Remove default outline */
+    transition: border-bottom 0.3s; /* Smooth transition on hover/focus */
+    margin-bottom: 2px;
+}
+
+/* Focus effect for inputs */
+input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
+    border-bottom: 1px solid #333; /* Darker border on focus */
+    margin-bottom: 2px;
+}
+
+/* General styles for radio buttons */
+input[type="radio"] {
+    margin-right: 10px; /* Space between radio button and label */
+    margin-bottom: 2px;
+}
+
+/* Styles for the text area */
+textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for user comfort */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin-bottom: 2px;
+}
+
+/* Button styles for submit buttons */
+button {
+    padding: 10px 20px; /* Padding for button-like appearance */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #333; /* Dark background */
+    color: white; /* White text */
+    border: none; /* No border */
+    cursor: pointer; /* Cursor changes to pointer */
+    transition: background-color 0.3s; /* Smooth hover effect */
+
+}
+
+/* Hover effect for buttons */
+button:hover {
+    background-color: #555; /* Change background on hover */
+}
+
+
+.bottom_content{
+    width: 96%; /* Each div occupies nearly half the width */
+    padding: 10px; /* Padding inside the div */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    margin-left: 1%;
+    height: auto;

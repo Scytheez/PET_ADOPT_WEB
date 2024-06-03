@@ -1,0 +1,96 @@
+
+/* Reset default body margins and padding */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar container */
+.navbar {
+    display: flex; /* Enable Flexbox for horizontal arrangement */
+    justify-content: space-around; /* Equally space the buttons */
+    align-items: center; /* Center the buttons vertically */
+    background-color: #333; /* Dark background for contrast */
+    color: white; /* White text for visibility */
+    height: 70px; /* Fixed height for the navbar */
+    
+}
+
+/* Navbar buttons */
+.nav-button {
+    text-decoration: none; /* No underline */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding for button-like appearance */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+.nav-button:hover {
+    background-color: #555; /* Change background on hover */
+}
+
+/* Outer container that occupies the full viewport */
+.main-container {
+    display: flex; /* Enable Flexbox */
+    flex-direction: row;
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: stretch; /* Stretch vertically to fill container */
+    height: calc(100vh - 50px); /* Occupy the full viewport, minus the navbar height */
+    overflow: hidden; /* Prevent overflow and scrollbars */
+    background-color: #FDE1CC;
+}
+.inner{
+    display: flex;
+    background-color: white;
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    height: 87%;
+    width: 100%;
+    border-radius: 30px;
+    margin-bottom: 70px;
+}
+.left_side, .right_side{
+    width: 50%;
+    height: auto;
+    border-radius: 30px;
+    border: 2px solid #bbb;
+    margin: 3%;
+}
+.left_side{
+    display: flex;
+    flex-direction: row;
+    width: 55%;
+    height: auto;
+    border-radius: 30px;
+    border: 2px solid #bbb;
+    margin: 3%;
+}
+.right{
+    width: 50%;
+    height: auto;
+    margin: 1%;
+    margin-top: 20%;
+}
+.left{
+    width: 60%;
+    margin: 1%;
+    margin-top: 20%; 
+    padding-left: 5%;
+}
+
+
+.left img {
+    width: 100%; /* Take the full width of the parent container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px; /* Add rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a soft shadow */
+    
+}
+
+.right, p{
+    text-align: center, justify;
+    margin-left: 3%;
+    padding-top: 5%;
+    font-size: 16px;
+    font-weight: bold;

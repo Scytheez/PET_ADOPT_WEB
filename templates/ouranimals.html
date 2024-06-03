@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ouranimals.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Paws for a Cause: 
+            Adoption System</h1>
+        <a href="{{ url_for('dashboard') }}" class="nav-button">Home</a>
+        <a href="{{ url_for('ouranimals') }}" class="nav-button">Our Animals</a>
+        <a href="{{ url_for('rehome') }}" class="nav-button">Reho-Me</a>
+        <a href="{{ url_for('donation') }}" class="nav-button">Donation</a>
+    </nav>
+
+    <div class="main-container">
+        <div class="inner">
+            <div class="filter-buttons">
+                <a href="{{ url_for('ouranimals', category='All') }}"><button class="filter-button {% if category == 'All' %}active{% endif %}">All</button></a>
+                <a href="{{ url_for('ouranimals', category='Dogs') }}"><button class="filter-button {% if category == 'Dogs' %}active{% endif %}">Dogs</button></a>
+                <a href="{{ url_for('ouranimals', category='Cats') }}"><button class="filter-button {% if category == 'Cats' %}active{% endif %}">Cats</button></a>
+                <div class="adopt1">
+                    <a href="{{ url_for('predictor') }}"><button class="btn">Find the suitable pet for you</button></a>
+                </div>
+
+            </div>
+
+            <div class="content-area">
+                <div class="container">
+                    {% if pets %}
+                        {% for pet in pets %}
+                            <div class="pet-card">
+                                <div class="pet-left">
+                                    <div class="pet-picture">
+                                        {% if pet[4] %}
+                                        <img src="data:image/jpeg;base64,{{ pet[4].decode('utf-8') }}" alt="Pet Image">
+                                    {% else %}
+                                        <img src="{{ url_for('static', filename='images/default-pet.jpg') }}" alt="Default Pet Image">
+                                    {% endif %}
+                                    </div>
+                                    <div class="adopt">
+                                        <a href="{{ url_for('adopt', pet_id=pet[5]) }}"><button class="btn">Adopt Now</button></a>
+                                    </div>
+                                </div>
+                                <div class="pet-info">
+                                    <div class="pethead">
+                                        <h2>{{ pet[0] }}</h2>
+                                    </div>
+                                    <div class="pet-info-details"> 
+                                        <p>Age: {{ pet[1] }}</p>
+                                        <p>Gender: {{ pet[2] }}</p>
+                                        <p>Breed: {{ pet[3] }}</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No pets found.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="pagination">
+                {% if page > 1 %}
+                    <a href="{{ url_for('ouranimals', page=page-1, category=category) }}" class="prevbutton">Previous</a>
+                {% endif %}
+                
+                {% if has_next %}
+                    <a href="{{ url_for('ouranimals', page=page+1, category=category) }}" class="nextbutton">Next</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
